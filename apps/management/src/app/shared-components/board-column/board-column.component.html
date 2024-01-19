@@ -1,0 +1,21 @@
+
+  <div cdkDropListGroup class="board-column">
+    @for (column of listColumnsBoard; track column) {
+        <div class="column m-4">
+            <p class="column__title"><i class="bi bi-circle-fill me-2"  [style.color]="column.color"></i>{{column.title | uppercase}}({{column.items.length}})</p>
+            <div class="card column__list"  cdkDropList [cdkDropListData]="column.items"  [cdkDropListConnectedTo]="column.connectedLists" (cdkDropListDropped)="drop($event)">               
+                @for (taks of column.items; track taks) {
+                    <div class="column__item" cdkDrag (click)="openModal(taks)">
+                     <p class="column__item_title">{{taks.title}}</p> 
+                     <p class="column__item_total"> {{getSubtaksCompleted(taks.subtasks)}} of {{taks.subtasks.length}} subtaks</p>
+                    </div>
+                  }
+              </div>
+      </div>
+    }
+    <div class="card column-more" >
+     + New column
+    </div>
+  </div>
+  
+ <task-dasboard-modal></task-dasboard-modal>

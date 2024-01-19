@@ -1,0 +1,38 @@
+@if(modalOpen) {
+<div  [class.modal]="modalOpen" tabindex="-1" role="dialog" >
+    <div class="modal-dialog details" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p class="details__title__taks">{{ modalData.title }}</p>
+          <p class="details__description__taks">{{ modalData.description }}</p>
+          <div class="row subtaks__modal">
+          <p class="details__subtitle__taks">Subtasks( {{modalData.subtasks.length}})</p>
+          @for (subtask of modalData.subtasks; track subtask) {
+              <div class="row">
+                <div class="subtaks__modal__card card">
+                    <div class="card-body">
+                        <input class="subtaks__modal__card__input form-check-input" type="checkbox"
+                         [ngModel]="subtask.isCompleted"
+                         (ngModelChange)="onCheckboxChange(subtask)"
+                         [checked]="subtask.isCompleted"   />
+                       <p [appHighlight]="subtask.isCompleted" class="subtaks__modal__card__status"> {{subtask.title}}</p>
+                      
+                    </div>
+                </div>
+              </div>
+          }
+        </div>
+        <div class="row">
+          <p class="details__subtitle__taks">Status</p>
+          <select class="details__title__select" id="opciones" [(ngModel)]="modalData.status" #statusSelect  (change)="onOpcionSeleccionadaChange()" >
+            @for (opcion of listStatusBoard; track opcion) {
+             <option  [value]="opcion">{{ opcion }}</option>
+            } 
+        </select>
+        </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+}

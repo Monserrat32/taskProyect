@@ -1,0 +1,30 @@
+{
+  "name": "management-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/management-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/management-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "management:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "management:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "management:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["management"]
+}

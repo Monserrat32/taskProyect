@@ -1,0 +1,41 @@
+<div class="row mr-0 ml-0 pr-0 pl-0 " style="height: 100vh;">
+    @if(showSidebar) {
+<div class="col-2 sidebar ">
+   
+        
+            <div class="sidebar__toolbar mb-4">
+                <app-toolbar></app-toolbar>
+            </div>
+            <div class="sidebar__change__theme mb-4">
+                <div class="row justicy-center">        
+                        <i class=" sidebar__change__theme_i bi bi-sun-fill pt-3 pb-3"></i>
+                        <div class=" sidebar__change__theme_i_switch form-check form-switch pt-3 pb-3">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (change)="changeThemeAplication()">          
+                        </div>
+                      <i class=" sidebar__change__theme_i bi bi-moon-stars-fill pt-3 pb-3"></i>
+                    </div>
+
+            </div>
+            <div class="sidebar__hide_sidebar text-center ">
+                <button class="sidebar__hide_sidebar_btn" (click)="toggleSidebar()"><i class="bi bi-eye-slash ms-1 me-1"></i>HideSidebar</button>
+            </div>
+        
+ 
+</div>
+}
+<div [ngClass]="{'col-10': showSidebar, 'col-12': !showSidebar}" >
+    <div class="header">
+        <app-header></app-header>
+    </div>
+    <div class="section-tasks">
+        <router-outlet></router-outlet>
+    </div>
+    @if(!showSidebar) {
+    <button class="sidebar__hide_sidebar_btn_eye" (click)="toggleSidebar()"><i class="bi bi-eye-fill"></i></button>
+    }
+</div>
+
+</div>
+
+
+

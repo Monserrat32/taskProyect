@@ -1,0 +1,25 @@
+
+<div class="toolbar-nav">
+    <div class="toolbar-nav__title ps-4 pt-4">
+        <div class="toolbar-nav__image" ></div>
+       <p class="toolbar-nav__text">Kanban</p>
+    </div>
+    <div class="toolbar-nav__title ps-4 pt-4">
+        <p class="toolbar-nav__sub_text">ALL BOARDS</p>
+    </div>
+    <nav class="toolbar-nav__nav flex-column">
+        @for( boards of kanbanBoards; track $index  ) {
+            <a
+            [routerLink]="boards.path"
+             routerLinkActive="active"
+             class="toolbar-nav__link nav-link"
+             (click)="sendTitle(boards.title)"
+             >
+             <span class="toolbar-nav__link-text "><i class="bi bi-layout-sidebar-reverse"></i> {{ boards.title }}</span>
+             </a>
+        }
+        <a class="toolbar-nav__link nav-link">
+            <span class="toolbar-nav__link-text "><i class="bi bi-layout-sidebar-reverse"></i> +Create new board</span>
+        </a>
+    </nav>
+</div>
