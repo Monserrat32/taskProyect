@@ -14,16 +14,16 @@ The project is organized using the Nx monorepository architecture. The basic str
 
 1. **Install Dependencies:**
    ```bash
-   npm install
+    npm install
 2. ** Run the Application:**
    ```bash
-nx serve <application-name>
-3.-**Run Unit Tests:**
+    nx serve <application-name>
+3.  **Run Unit Tests:**
  ```bash
-nx test <application-name>
+    nx test <application-name>
 4. **nx test <application-name>**
  ```bash
-nx generate 'name-aplication'
+    nx generate 'name-aplication'
 
 Contribution
 We would love to receive contributions! If you find bugs, issues, or have suggestions, please open an issue or send a pull request.
